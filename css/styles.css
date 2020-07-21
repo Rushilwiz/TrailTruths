@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body {
+  overflow-y: scroll;
+  /* Keep scroll functionality */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.hero {
+  color: white;
+  background-image: url("res/hero.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.arrow {
+  vertical-align: bottom;
+  text-align: center;
+  cursor: pointer;
+  width: 70px;
+  margin: 0 auto;
+  margin-top: 70vh;
+  height: 100px;
+}
+
+.arrow:after {
+  content: "";
+  margin-top: 70vh;
+  width: 70px;
+  height: 100px;
+  position: absolute;
+  background-image: url("res/arrow.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-animation: 3s infinite ease;
+  animation: 3s infinite ease;
+  animation-name: การเคลื่อนไหวที่-1;
+}
+@keyframes การเคลื่อนไหวที่-1 {
+  0%, 100% {
+    top: 50px;
+  }
+  50% {
+    top: 80px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
