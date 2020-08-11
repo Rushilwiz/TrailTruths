@@ -1,26 +1,32 @@
 @charset "UTF-8";
+@font-face {
+  src: url("./fonts/Hanson-Bold.ttf");
+  font-family: "Hanson-Bold"; }
+html {
+  background-color: #333; }
+
 body {
   overflow-y: scroll;
   /* Keep scroll functionality */
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
-}
+  /* Firefox */ }
 
 body::-webkit-scrollbar {
-  display: none;
-}
+  display: none; }
 
 .hero {
-  color: white;
+  color: #333 !important;
+  background-color: #333 !important;
   background-image: url("res/hero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
-}
+  background-attachment: fixed; }
+  @media (max-width: 768px) {
+    .hero {
+      background-image: url("res/hero-mobile.png"); } }
 
 .arrow {
   vertical-align: bottom;
@@ -29,8 +35,7 @@ body::-webkit-scrollbar {
   width: 70px;
   margin: 0 auto;
   margin-top: 70vh;
-  height: 100px;
-}
+  height: 100px; }
 
 .arrow:after {
   content: "";
@@ -43,15 +48,39 @@ body::-webkit-scrollbar {
   background-repeat: no-repeat;
   -webkit-animation: 3s infinite ease;
   animation: 3s infinite ease;
-  animation-name: การเคลื่อนไหวที่-1;
-}
+  animation-name: การเคลื่อนไหวที่-1; }
 @keyframes การเคลื่อนไหวที่-1 {
-  0%, 100% {
-    top: 50px;
-  }
+  0%,
+       100% {
+    top: 50px; }
   50% {
-    top: 80px;
-  }
-}
+    top: 80px; } }
+.vh-50 {
+  height: 50vh; }
+
+.banner {
+  color: white;
+  background-image: url("res/banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; }
+
+.info-col {
+  background-color: #fff; }
+
+.info-header {
+  font-family: 'Hanson-Bold','Arial',sans-serif;
+  color: white;
+  text-stroke: 3px #305899;
+  -webkit-text-stroke: 3px #305899; }
+
+.info {
+  font-family: 'Hanson-Bold','Arial',sans-serif;
+  font-size: .8em;
+  color: #2b5291; }
+
+#insta-section {
+  background-color: #333; }
 
 /*# sourceMappingURL=styles.css.map */
