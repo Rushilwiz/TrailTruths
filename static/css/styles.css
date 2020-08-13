@@ -109,4 +109,8 @@ body::-webkit-scrollbar {
 label {
   font-size: 1.25em; }
 
+.emote img {
+  width: 25vw;
+  height: auto; }
+
 /*# sourceMappingURL=styles.css.map */
