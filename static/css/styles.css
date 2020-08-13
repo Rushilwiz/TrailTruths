@@ -29,8 +29,6 @@ body::-webkit-scrollbar {
       background-image: url("res/hero-mobile.png"); } }
 
 .arrow {
-  vertical-align: bottom;
-  text-align: center;
   cursor: pointer;
   width: 70px;
   margin: 0 auto;
@@ -55,6 +53,9 @@ body::-webkit-scrollbar {
     top: 50px; }
   50% {
     top: 80px; } }
+.vh-25 {
+  height: 25vh; }
+
 .vh-50 {
   height: 50vh; }
 
@@ -74,13 +75,38 @@ body::-webkit-scrollbar {
   color: white;
   text-stroke: 3px #305899;
   -webkit-text-stroke: 3px #305899; }
+  @media (max-width: 768px) {
+    .info-header {
+      font-size: 1.25em;
+      text-stroke: 2px #305899;
+      -webkit-text-stroke: 2px #305899; } }
 
 .info {
   font-family: 'Hanson-Bold','Arial',sans-serif;
   font-size: .8em;
   color: #2b5291; }
+  @media (max-width: 768px) {
+    .info {
+      font-size: .75em; } }
 
 #insta-section {
   background-color: #333; }
+
+.poll {
+  color: white;
+  background-image: url("res/gradient.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; }
+  @media (max-width: 768px) {
+    .poll {
+      background-image: url("res/gradient-mobile.png"); } }
+
+.short-answer {
+  padding-bottom: 10vh; }
+
+label {
+  font-size: 1.25em; }
 
 /*# sourceMappingURL=styles.css.map */

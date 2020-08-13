@@ -11,11 +11,15 @@
   }
 }
 
+// mobile
+
+$mobile-width: 768px;
+
 @mixin mobile {
-  @media (max-width: 768px) { @content }
+  @media (max-width: $mobile-width) { @content }
 }
 
-//fonts
+// fonts
 @font-face {
     src: url("./fonts/Hanson-Bold.ttf");
     font-family: "Hanson-Bold";
@@ -60,8 +64,6 @@ body::-webkit-scrollbar {
 }
 
 .arrow {
-  vertical-align: bottom;
-   text-align: center;
    cursor: pointer;
    width: 70px;
    margin: 0 auto;
@@ -81,6 +83,9 @@ body::-webkit-scrollbar {
 
      -webkit-animation: 3s infinite ease;
      animation: 3s infinite ease;
+     @include mobile {
+
+     }
 
      @include animation-keyframes {
        0%,
@@ -94,6 +99,10 @@ body::-webkit-scrollbar {
     }
 }
 
+
+.vh-25 {
+  height: 25vh;
+}
 
 .vh-50 {
   height: 50vh;
@@ -117,18 +126,43 @@ body::-webkit-scrollbar {
       color: white;
       text-stroke: 3px $header-stroke;
       -webkit-text-stroke: 3px $header-stroke;
+    @include mobile {
+      font-size: 1.25em;
+      text-stroke: 2px $header-stroke;
+      -webkit-text-stroke: 2px $header-stroke;
+    }
 }
 
 .info {
   font-family: 'Hanson-Bold','Arial',sans-serif;
   font-size: .8em;
   color: $text;
+  @include mobile {
+    font-size: .75em;
+
+  }
 }
 
 #insta-section {
   background-color: $dark-grey;
 }
 
-.insta-info {
+.poll {
+  color: white;
+  background-image: url("res/gradient.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  @include mobile {
+    background-image: url("res/gradient-mobile.png");
+  };
+}
 
+.short-answer {
+  padding-bottom: 10vh;
+}
+
+label {
+  font-size: 1.25em;
 }
