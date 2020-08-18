@@ -20,6 +20,8 @@ $mobile-width: 768px;
 }
 
 // fonts
+$font-stack: 'Hanson-Bold','Arial',sans-serif;
+
 @font-face {
     src: url("./fonts/Hanson-Bold.ttf");
     font-family: "Hanson-Bold";
@@ -34,6 +36,7 @@ $header-stroke: #305899;
 
 html {
   background-color: $dark-grey;
+  font-family: $font-stack;
 }
 
 body {
@@ -122,21 +125,22 @@ body::-webkit-scrollbar {
 }
 
 .info-header {
-    font-family: 'Hanson-Bold','Arial',sans-serif;
-      color: white;
-      text-stroke: 3px $header-stroke;
-      -webkit-text-stroke: 3px $header-stroke;
-    @include mobile {
-      font-size: 1.25em;
-      text-stroke: 2px $header-stroke;
-      -webkit-text-stroke: 2px $header-stroke;
-    }
+  color: white;
+  font-family: $font-stack;
+  text-stroke: 3px $header-stroke;
+  -webkit-text-stroke: 3px $header-stroke;
+
+  @include mobile {
+    font-size: 1.25em;
+    text-stroke: 2px $header-stroke;
+    -webkit-text-stroke: 2px $header-stroke;
+  }
 }
 
 .info {
-  font-family: 'Hanson-Bold','Arial',sans-serif;
   font-size: .8em;
   color: $text;
+  font-family: $font-stack;
   @include mobile {
     font-size: .75em;
 
@@ -149,13 +153,16 @@ body::-webkit-scrollbar {
 
 .poll {
   color: white;
-  background-image: url("res/gradient.png");
+  background-image: url("res/poll-gradient.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: $font-stack;
+  font-weight: lighter;
+  font-size: .75em;
   @include mobile {
-    background-image: url("res/gradient-mobile.png");
+    background-image: url("res/poll-gradient.png");
   };
 }
 
@@ -170,4 +177,9 @@ label {
 .emote img {
   width: 25vw;
   height: auto;
+}
+
+.btn {
+  color: $text;
+  border-image-repeat: none;
 }
