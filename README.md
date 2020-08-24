@@ -1,4 +1,4 @@
-# HiLo?
+# HiLo
 A fun polling service for trailgoers to see how their opinions align!
 
 ![GitHub language](https://img.shields.io/github/languages/top/rushilwiz/hilo?color=FF6663)
