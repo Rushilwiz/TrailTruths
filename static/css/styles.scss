@@ -11,14 +11,6 @@
   }
 }
 
-// mobile
-
-$mobile-width: 768px;
-
-@mixin mobile {
-  @media (max-width: $mobile-width) { @content }
-}
-
 // fonts
 $font-stack: 'Hanson-Bold','Arial',sans-serif;
 
@@ -27,16 +19,50 @@ $font-stack: 'Hanson-Bold','Arial',sans-serif;
     font-family: "Hanson-Bold";
 }
 
+@font-face {
+    src: url("./fonts/FuturaPTMedium.otf");
+    font-family: "Futura";
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    src: url("./fonts/FuturaPTLight.otf");
+    font-family: "Futura-Light";
+}
+
+@font-face {
+    src: url("./fonts/FuturaPTHeavy.otf");
+    font-family: "Futura-Heavy";
+}
+
+// mobile
+
+$mobile-width: 768px;
+
+@mixin mobile {
+  @media (max-width: $mobile-width) { @content }
+}
+
+@mixin desktop {
+  @media (min-width: $mobile-width) { @content }
+}
+
 
 // colors
 $dark-grey: #333;
 $text: #2b5291;
+$text-light: #42b8c7;
 $header-stroke: #305899;
 
+$green: #48B93E;
+$red: #E34848;
 
 html {
   background-color: $dark-grey;
   font-family: $font-stack;
+
+  overflow-x: none;
 }
 
 body {
@@ -52,18 +78,19 @@ body::-webkit-scrollbar {
 .hero {
   color: $dark-grey !important;
   background-color: $dark-grey !important;
-  background-image: url("res/hero.png");
+  background-image: url("res/hilo-hero-text.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 
   @include mobile {
-    background-image: url("res/hero-mobile.png");
+    background-image: url("res/hilo-hero-text-mobile.png");
   };
 }
 
 .container .arrow {
+
 }
 
 .arrow {
@@ -151,9 +178,20 @@ body::-webkit-scrollbar {
   background-color: $dark-grey;
 }
 
+.bg-colored:before {
+    right: -999em;
+    background:  #0b3b52;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 999em;
+    top: 0;
+    bottom: 0;
+}
+
 .poll {
   color: white;
-  background-image: url("res/poll-gradient.png");
+  background-image: url("res/gradient-mobile.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -162,12 +200,22 @@ body::-webkit-scrollbar {
   font-weight: lighter;
   font-size: .75em;
   @include mobile {
-    background-image: url("res/poll-gradient.png");
+    background-image: url("res/gradient-mobile.png");
   };
 }
 
 .short-answer {
-  padding-bottom: 10vh;
+  font-size: 1.2em;
+}
+
+.title {
+  color: $text-light;
+  font-size: 1.45em;
+}
+
+.subtitle {
+  color: $text-light;
+  font-size: 1.15em;
 }
 
 label {
@@ -182,4 +230,12 @@ label {
 .btn {
   color: $text;
   border-image-repeat: none;
+}
+
+.hi {
+  color: $green;
+}
+
+.lo {
+  color: $red;
 }
