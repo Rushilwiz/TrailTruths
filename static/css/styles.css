@@ -3,6 +3,9 @@
   src: url("./fonts/Hanson-Bold.ttf");
   font-family: "Hanson-Bold"; }
 @font-face {
+  src: url("./fonts/WildYouth-Regular.otf");
+  font-family: "WildYouth"; }
+@font-face {
   src: url("./fonts/FuturaPTMedium.otf");
   font-family: "Futura";
   font-weight: normal;
@@ -152,9 +155,25 @@ label {
   border-image-repeat: none; }
 
 .hi {
-  color: #48B93E; }
+  color: #48B93E;
+  font-family: "WildYouth", "Hanson-Bold", "Arial", sans-serif; }
 
 .lo {
-  color: #E34848; }
+  color: #E34848;
+  font-family: "WildYouth", "Hanson-Bold", "Arial", sans-serif; }
+
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0; }
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer; }
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 2px solid #2b5291; }
 
 /*# sourceMappingURL=styles.css.map */

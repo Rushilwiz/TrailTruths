@@ -1,5 +1,6 @@
-argparse==1.2.1
-django==1.11.29
-pip-chill==1.0.0
-python==2.7.17
-wsgiref==0.1.2
+argparse
+django
+django-widget-tweaks
+pip-chill
+python
+wsgiref

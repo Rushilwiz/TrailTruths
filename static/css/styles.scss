@@ -20,6 +20,11 @@ $font-stack: 'Hanson-Bold','Arial',sans-serif;
 }
 
 @font-face {
+    src: url("./fonts/WildYouth-Regular.otf");
+    font-family: "WildYouth";
+}
+
+@font-face {
     src: url("./fonts/FuturaPTMedium.otf");
     font-family: "Futura";
     font-weight: normal;
@@ -234,8 +239,27 @@ label {
 
 .hi {
   color: $green;
+  font-family: "WildYouth", $font-stack;
 }
 
 .lo {
   color: $red;
+  font-family: "WildYouth", $font-stack;
+}
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 2px solid $text;
 }
