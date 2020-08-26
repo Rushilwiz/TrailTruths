@@ -1,14 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponseNotFound
 
 from .forms import PollForm
-from .models import Poll
+from .models import Poll, Location
 
 # Create your views here.
 
-def homepage (request):
-	poll = get_object_or_404(Poll)
+def homepage (request, slug="arlington"):
+	location = get_object_or_404(Location, slug=slug)
+
+	try:
+		poll = location.poll
+	except:
+		return HttpResponseNotFound(f'404: No poll was found for {location}!')
 
 	if poll.ask_hi:
 		hi_text = poll.hi_text
@@ -70,3 +76,4 @@ def homepage (request):
 
 def finish (request):
 	pass
+
