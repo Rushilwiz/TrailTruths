@@ -125,7 +125,7 @@
                       <div class="col emote">
                         <label for="{{ radio.id_for_label }}">
                           {{ radio.tag }}
-                          <img src="{% static 'css/res/'|add:radio.choice_label|add:'.svg' %}" alt="">
+                          <img src="{% static 'css/res/'|add:radio.choice_label|add:'.svg'|lower } %}" alt="">
                         </label>
                       </div>
                       {% endfor %}
