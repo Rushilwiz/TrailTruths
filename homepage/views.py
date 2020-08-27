@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseNotFound
-from .forms import PollForm
+from .forms import PollForm, CreatePollForm, LocationForm
 from .models import Poll, Location, Answer
 
 # Create your views here.
@@ -91,3 +91,26 @@ def results (request, slug="arlington"):
 	}
 
 	return render(request, 'homepage/results.html', context=context)
+
+def create(request):
+    if request.method == "POST":
+        locationForm = LocationForm(request.POST)
+        pollForm = CreatePollForm(request.POST)
+
+        if locationForm.is_valid() and pollForm.is_valid():
+            location = locationForm.save()
+            poll = pollForm.save(commit=False)
+            poll.location = location
+            poll.save()
+            messages.success(request, "Your location has been created!")
+            return redirect(f'/{location.slug}/')
+    else:
+        locationForm = LocationForm()
+        pollForm = CreatePollForm()
+
+    context = {
+        'locationForm': locationForm,
+        'pollForm': pollForm
+    }
+
+    return render(request, 'homepage/create.html', context)

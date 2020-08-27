@@ -1,6 +1,8 @@
 argparse==1.4.0
 django==3.1
 django-cleanup==5.0.0
+django-crispy-forms==1.9.2
+django-profanity-filter==0.2.1
 django-widget-tweaks==1.4.8
 pillow==7.2.0
 pip-chill==1.0.0

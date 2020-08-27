@@ -18,8 +18,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 class Location (models.Model):
 	name = models.CharField(max_length=20, blank=True, null=True)
-	slug = models.CharField(max_length=20, blank=True, null=True)
 	insta = models.CharField(max_length=20, blank=True, null=True)
+
+	slug = models.CharField(max_length=20, blank=True, null=True)
 
 	hero = models.ImageField(default="hero.png", upload_to='heros')
 	hero_mobile = models.ImageField(default="hero-mobile.png", upload_to='heros')
@@ -73,10 +74,10 @@ class Poll (models.Model):
 	location = models.OneToOneField(Location, on_delete=models.CASCADE)
 
 	ask_hi = models.BooleanField(default=True)
-	hi_text = models.CharField(max_length=100, blank=True, null=True, default='What was the <span class="hi">Hi</span> of this we')
+	hi_text = models.CharField(max_length=100, blank=True, null=True, default='What was the <span class="hi">Hi</span> of this week?')
 	
 	ask_lo = models.BooleanField(default=True)
-	lo_text = models.CharField(max_length=100, blank=True, null=True, default='What was the <span class="lo">Lo</span> of this we')
+	lo_text = models.CharField(max_length=100, blank=True, null=True, default='What was the <span class="lo">Lo</span> of this week?')
 	
 	ask_emotion = models.BooleanField(default=True)
 	emotion_text = models.CharField(max_length=100, blank=True, null=True, default="how are you feeling today?")
@@ -90,11 +91,14 @@ class Poll (models.Model):
 	ask_question = models.BooleanField(default=False)
 	question_text = models.CharField(max_length=100, blank=True, null=True)
 
-	pub_date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField('date published', blank=True, null=True)
 
 	def __str__(self):
 		return f"{self.location.name}'s Poll"
 
+	def __save__(self, *args, **kwargs):
+		self.pub_date = timezone.now()
+		super().save(self, *args, **kwargs)
 
 
 EMOTION_CHOICES= [
