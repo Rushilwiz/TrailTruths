@@ -12,7 +12,7 @@
 }
 
 // fonts
-$font-stack: 'Hanson-Bold','Arial',sans-serif;
+$font-stack: 'Futura-Heavy','Arial',sans-serif;
 
 @font-face {
     src: url("./fonts/Hanson-Bold.ttf");
@@ -56,6 +56,7 @@ $mobile-width: 768px;
 
 // colors
 $dark-grey: #333;
+$darker-grey: #222;
 $text: #2b5291;
 $text-light: #42b8c7;
 $header-stroke: #305899;
@@ -64,10 +65,10 @@ $green: #48B93E;
 $red: #E34848;
 
 html {
-  background-color: $dark-grey;
+  background-color: $darker-grey;
   font-family: $font-stack;
 
-  overflow-x: none;
+  overflow-x: none!important;
 }
 
 body {
@@ -81,8 +82,6 @@ body::-webkit-scrollbar {
 }
 
 .hero {
-  color: $dark-grey !important;
-  background-color: $dark-grey !important;
   background-image: url("res/hilo-hero-text.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -157,15 +156,15 @@ body::-webkit-scrollbar {
 }
 
 .info-header {
-  color: white;
+  color: $text;
   font-family: $font-stack;
-  text-stroke: 3px $header-stroke;
-  -webkit-text-stroke: 3px $header-stroke;
+  //text-stroke: 3px $header-stroke;
+  //-webkit-text-stroke: 3px $header-stroke;
 
   @include mobile {
     font-size: 1.25em;
-    text-stroke: 2px $header-stroke;
-    -webkit-text-stroke: 2px $header-stroke;
+    //text-stroke: 2px $header-stroke;
+    //-webkit-text-stroke: 2px $header-stroke;
   }
 }
 
@@ -180,7 +179,10 @@ body::-webkit-scrollbar {
 }
 
 #insta-section {
-  background-color: $dark-grey;
+  border-bottom: 2px solid white;
+  div {
+    background-color: pink;
+  }
 }
 
 .bg-colored:before {
@@ -194,9 +196,14 @@ body::-webkit-scrollbar {
     bottom: 0;
 }
 
+.poll-section {
+  text-align: center;
+}
+
 .poll {
   color: white;
-  background-image: url("res/gradient-mobile.png");
+  //background-image: url("res/poll-gradient.png");
+  background-color: $darker-grey;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -205,31 +212,33 @@ body::-webkit-scrollbar {
   font-weight: lighter;
   font-size: .75em;
   @include mobile {
-    background-image: url("res/gradient-mobile.png");
+    //background-image: url("res/gradient-mobile.png");
   };
 }
 
 .short-answer {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .title {
   color: $text-light;
-  font-size: 1.45em;
+  font-size: 1.20em;
+  text-align: center;
+  @include desktop {
+    font-size: 1.45em;
+  }
 }
 
 .subtitle {
   color: $text-light;
-  font-size: 1.15em;
+  font-size: 1.1em;
+  @include desktop {
+    font-size: 1.2em;
+  }
 }
 
 label {
   font-size: 1.25em;
-}
-
-.emote img {
-  width: 25vw;
-  height: auto;
 }
 
 .btn {
@@ -239,12 +248,10 @@ label {
 
 .hi {
   color: $green;
-  font-family: "WildYouth", $font-stack;
 }
 
 .lo {
   color: $red;
-  font-family: "WildYouth", $font-stack;
 }
 
 [type=radio] { 
@@ -257,9 +264,30 @@ label {
 /* IMAGE STYLES */
 [type=radio] + img {
   cursor: pointer;
+  width: 25vw;
+  height: auto;
+  @include desktop {
+    width: 10vw;
+    height: auto;
+    margin: auto;
+    display: block;
+  };
 }
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
   outline: 2px solid $text;
+}
+
+.hidden {
+  display: none;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.results-emote {
+  width: 150px;
+  height: auto;
 }

@@ -4,6 +4,17 @@
 
 
 {% block content %}
+        <style type="text/css">
+          .hero {
+            background-image: url("{{ location.hero.url }}");
+          }
+
+            @media (max-width: 768px) {
+              .hero {
+                background-image: url("{{ location.hero_mobile.url }}");
+              }
+            }
+        </style>
         <section class="jumbotron hero jumbotron-fluid m-0">
             <div class="container">
               <div class="arrow" id="arrow"></div>
@@ -52,8 +63,8 @@
                 </p>
             </div>
         </div>
-          <section>
-              <div class="jumbotron poll jumbotron-fluid m-0">
+          <section class="poll-section ">
+              <div class="jumbotron poll jumbotron-fluid m-0 border-0">
                 <div class="container">
                   {% if messages %}
                     {% for message in messages %}
@@ -65,31 +76,41 @@
                       </div>
                     {% endfor %}
                   {% endif %}
-                  <form id='poll' method="POST">
+
+                  <form id='poll' method="POST" novalidate>
                     {% csrf_token %}
                     {% for hidden in form.hidden_fields %}
                       {{ hidden }}
                     {% endfor %}
+
+
+                    {{ form.errors }}
+                    {{ form.non_field_errors }}
+                    
                     <div class="row title pb-3 ">
-                      <p for="test" class="mx-auto subtitle">NOW IS YOUR TIME TO SHINE</p>
+                      <p for="test" class="mx-auto title">NOW IS YOUR TIME TO SHINE</p>
                     </div>
                     {% if hi_text %}
                       <div class="row pb-3 short-answer">
                         <label class="mx-auto" for="{{ form.hi.id_for_label }}">{{ hi_text|safe }}</label>
-                        {{ form.hi|add_class:'w-75 mx-auto rounded' }}
+                        {{ form.hi|add_class:'w-80 mx-auto rounded' }}
                         {% for error in form.hi.errors %}
                           <span class="help-block">{{ error }}</span>
                         {% endfor %}
                       </div>
+                    {% else %}
+                      {{ form.hi|add_class:'hidden' }}
                     {% endif %}
                     {% if lo_text %}
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.lo.id_for_label }}">What was the <span class="lo">Lo</span> of this week?</label>
-                      {{ form.lo|add_class:'w-75 mx-auto rounded' }}
+                      {{ form.lo|add_class:'w-80 mx-auto rounded' }}
                       {% for error in form.lo.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
                     </div>
+                    {% else %}
+                      {{ form.lo|add_class:'hidden' }}
                     {% endif %}
                     <div class="row pb-1 subtitle">
                       <p class="mx-auto">SOME MORE QUESTIONS FOR THE SOUL</p>
@@ -109,33 +130,43 @@
                       </div>
                       {% endfor %}
                     </div>
+                    {% else %}
+                      {% for radio in form.emotion %}
+                        {{ radio.tag|add_class:'hidden' }}
+                      {% endfor %}
                     {% endif %}
                     {% if name_text %}
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.name.id_for_label }}">{{ name_text|safe }}</label>
-                      {{ form.name|add_class:'w-75 mx-auto rounded' }}
+                      {{ form.name|add_class:'w-80 mx-auto rounded' }}
                       {% for error in form.name.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
                     </div>
+                    {% else %}
+                      {{ form.name|add_class:'hidden' }}
                     {% endif %}
                     {% if place_text %}         
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.place.id_for_label }}">{{ place_text|safe }}</label>
-                      {{ form.place|add_class:'w-75 mx-auto rounded' }}
+                      {{ form.place|add_class:'w-80 mx-auto rounded' }}
                       {% for error in form.place.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
                     </div>
+                    {% else %}
+                      {{ form.place|add_class:'hidden' }}
                     {% endif %}
                     {% if question_text %}         
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.question.id_for_label }}">{{ question_text|safe }}</label>
-                      {{ form.question|add_class:'w-75 mx-auto rounded' }}
+                      {{ form.question|add_class:'w-80 mx-auto rounded' }}
                       {% for error in form.question.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
                     </div>
+                    {% else %}
+                      {{ form.question|add_class:'hidden' }}
                     {% endif %}
                     <div class="row">
                       <button type="submit" class="mx-auto btn text-uppercase">

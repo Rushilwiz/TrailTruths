@@ -1,0 +1,48 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block content %}
+<style type="text/css">
+	body {
+		background-color: #353a40;
+	}
+
+	.hero {
+		background-image: url("{{ location.results.url }}");
+	}
+
+    @media (max-width: 768px) {
+      .hero {
+        background-image: url("{{ location.results_mobile.url }}");
+      }
+    }
+</style>
+<section class="jumbotron hero jumbotron-fluid m-0"></section>
+{% for answer in answers %}
+	<div class="card text-white bg-dark mb-3">
+		<div class="row">
+			<div class="col">
+			{% if forloop.first %}  
+			  <div class="card-header">
+			    Hey it's you!
+			  </div>
+			{% endif %}
+			  <div class="card-body">
+			    <h5 class="card-title">{{answer.name}} from {{answer.place}} <small>at {{answer.time}}</small></h5>
+			    <p class="card-text"><b>High of their week:</b> {{answer.hi}}</p>
+			    <p class="card-text"><b>Low of their week:</b> {{answer.lo}}</p>
+			    {% if poll.ask_question %}
+			    	<p class="card-text"><b>{{ answer.current_question }}</b>: {{answer.question}}</p>
+			    {% endif %}
+			  </div>
+			</div>
+			<div class="col">
+			  <div class="card-body">
+			    <h5 class="card-title mb-2">They were feeling:</h5>
+			    <img class="results-emote" src="{% static 'css/res/'|add:answer.emotion|add:'.svg' %}" alt="">
+			  </div>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}

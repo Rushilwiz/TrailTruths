@@ -17,9 +17,9 @@
   src: url("./fonts/FuturaPTHeavy.otf");
   font-family: "Futura-Heavy"; }
 html {
-  background-color: #333;
-  font-family: "Hanson-Bold", "Arial", sans-serif;
-  overflow-x: none; }
+  background-color: #222;
+  font-family: "Futura-Heavy", "Arial", sans-serif;
+  overflow-x: none !important; }
 
 body {
   overflow-y: scroll;
@@ -33,8 +33,6 @@ body::-webkit-scrollbar {
   display: none; }
 
 .hero {
-  color: #333 !important;
-  background-color: #333 !important;
   background-image: url("res/hilo-hero-text.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -87,26 +85,24 @@ body::-webkit-scrollbar {
   background-color: #fff; }
 
 .info-header {
-  color: white;
-  font-family: "Hanson-Bold", "Arial", sans-serif;
-  text-stroke: 3px #305899;
-  -webkit-text-stroke: 3px #305899; }
+  color: #2b5291;
+  font-family: "Futura-Heavy", "Arial", sans-serif; }
   @media (max-width: 768px) {
     .info-header {
-      font-size: 1.25em;
-      text-stroke: 2px #305899;
-      -webkit-text-stroke: 2px #305899; } }
+      font-size: 1.25em; } }
 
 .info {
   font-size: .8em;
   color: #2b5291;
-  font-family: "Hanson-Bold", "Arial", sans-serif; }
+  font-family: "Futura-Heavy", "Arial", sans-serif; }
   @media (max-width: 768px) {
     .info {
       font-size: .75em; } }
 
 #insta-section {
-  background-color: #333; }
+  border-bottom: 2px solid white; }
+  #insta-section div {
+    background-color: pink; }
 
 .bg-colored:before {
   right: -999em;
@@ -118,49 +114,50 @@ body::-webkit-scrollbar {
   top: 0;
   bottom: 0; }
 
+.poll-section {
+  text-align: center; }
+
 .poll {
   color: white;
-  background-image: url("res/gradient-mobile.png");
+  background-color: #222;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: "Hanson-Bold", "Arial", sans-serif;
+  font-family: "Futura-Heavy", "Arial", sans-serif;
   font-weight: lighter;
   font-size: .75em; }
-  @media (max-width: 768px) {
-    .poll {
-      background-image: url("res/gradient-mobile.png"); } }
 
 .short-answer {
-  font-size: 1.2em; }
+  font-size: 1.1em; }
 
 .title {
   color: #42b8c7;
-  font-size: 1.45em; }
+  font-size: 1.20em;
+  text-align: center; }
+  @media (min-width: 768px) {
+    .title {
+      font-size: 1.45em; } }
 
 .subtitle {
   color: #42b8c7;
-  font-size: 1.15em; }
+  font-size: 1.1em; }
+  @media (min-width: 768px) {
+    .subtitle {
+      font-size: 1.2em; } }
 
 label {
   font-size: 1.25em; }
-
-.emote img {
-  width: 25vw;
-  height: auto; }
 
 .btn {
   color: #2b5291;
   border-image-repeat: none; }
 
 .hi {
-  color: #48B93E;
-  font-family: "WildYouth", "Hanson-Bold", "Arial", sans-serif; }
+  color: #48B93E; }
 
 .lo {
-  color: #E34848;
-  font-family: "WildYouth", "Hanson-Bold", "Arial", sans-serif; }
+  color: #E34848; }
 
 [type=radio] {
   position: absolute;
@@ -170,10 +167,28 @@ label {
 
 /* IMAGE STYLES */
 [type=radio] + img {
-  cursor: pointer; }
+  cursor: pointer;
+  width: 25vw;
+  height: auto; }
+  @media (min-width: 768px) {
+    [type=radio] + img {
+      width: 10vw;
+      height: auto;
+      margin: auto;
+      display: block; } }
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
   outline: 2px solid #2b5291; }
+
+.hidden {
+  display: none; }
+
+.w-80 {
+  width: 80%; }
+
+.results-emote {
+  width: 150px;
+  height: auto; }
 
 /*# sourceMappingURL=styles.css.map */

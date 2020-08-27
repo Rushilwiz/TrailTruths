@@ -2,9 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseNotFound
-
 from .forms import PollForm
-from .models import Poll, Location
+from .models import Poll, Location, Answer
 
 # Create your views here.
 
@@ -54,8 +53,7 @@ def homepage (request, slug="arlington"):
 			instance = form.save(commit=False)
 			instance.poll = poll
 			instance.save()
-			print(instance.pk)
-			return redirect('finish')
+			return redirect(f'/{location.slug}/results')
 		else:
 			messages.error(request, 'Looks like there were some problems with your form!', extra_tags='danger')
 			print("invalid form!")
@@ -64,6 +62,8 @@ def homepage (request, slug="arlington"):
 
 	context = {
 		'form': form,
+		'poll': poll,
+		'location': location,
 		'hi_text': hi_text,
 		'lo_text': lo_text,
 		'emotion_text': emotion_text,
@@ -74,6 +74,20 @@ def homepage (request, slug="arlington"):
 
 	return render(request, 'homepage/index.html', context=context)
 
-def finish (request):
-	pass
+def results (request, slug="arlington"):
+	location = get_object_or_404(Location, slug=slug)
 
+	try:
+		poll = location.poll
+	except:
+		return HttpResponseNotFound(f'404: No poll was found for {location}!')
+
+	answers = Answer.objects.filter(poll=poll)
+
+	context = {
+		'location':location,
+		'poll':poll,
+		'answers':answers,
+	}
+
+	return render(request, 'homepage/results.html', context=context)
