@@ -35,7 +35,7 @@ class Location (models.Model):
 		def drawPic (input, output, font, x, y, text):
 			img = Image.open(input)
 			draw = ImageDraw.Draw(img)
-			draw.text((x,y), text, (255,255,255), font=font)
+			draw.text((x,y), text, font=font, fill=(255,255,255))
 			img.save(output)
 
 		self.slug = slugify(self.name)
@@ -50,10 +50,24 @@ class Location (models.Model):
 
 		output = f'{settings.PROJECT_PATH}/media/heros/hero-{self.slug}.png'
 		mobile_output = f'{settings.PROJECT_PATH}/media/heros/hero-{self.slug}-mobile.png'
-		font = ImageFont.truetype(settings.PROJECT_PATH + static("css/fonts/Shorelines-Script-Bold.otf"), 80)
 
-		drawPic (settings.PROJECT_PATH + static("css/res/hero.png"), output, font, 1050, 450, self.slug)
-		drawPic (settings.PROJECT_PATH + static("css/res/hero-mobile.png"), mobile_output, font, 420, 860, self.slug)
+		font = ImageFont.truetype(settings.PROJECT_PATH + static("css/fonts/Hanson-Bold.ttf"), 42)
+		drawPic(settings.PROJECT_PATH + static("css/res/hero.png"), output, font, 945, 140, self.slug.upper())
+		drawPic(output, output, font, 945, 210, self.slug.upper())
+		drawPic(output, output, font, 945, 270, self.slug.upper())
+		drawPic(output, output, font, 625, 762, self.slug.upper())
+		drawPic(output, output, font, 625, 825, self.slug.upper())
+		drawPic(output, output, font, 625, 895, self.slug.upper())
+		font = ImageFont.truetype(settings.PROJECT_PATH + static("css/fonts/Hanson-Bold.ttf"), 65)
+		drawPic(settings.PROJECT_PATH + static("css/res/hero-mobile.png"), mobile_output, font, 600, 290, self.slug.upper())
+		drawPic(mobile_output, mobile_output, font, 600, 390, self.slug.upper())
+		drawPic(mobile_output, mobile_output, font, 600, 490, self.slug.upper())
+		drawPic(mobile_output, mobile_output, font, 100, 1370, self.slug.upper())
+		drawPic(mobile_output, mobile_output, font, 100, 1470, self.slug.upper())
+		drawPic(mobile_output, mobile_output, font, 100, 1570, self.slug.upper())
+		mobile_img = Image.open(mobile_output)
+		mobile_img.resize((1920, 1080))
+		mobile_img.save(mobile_output)
 
 		output = f'{settings.PROJECT_PATH}/media/results/results-{self.slug}.png'
 		mobile_output = f'{settings.PROJECT_PATH}/media/results/results-{self.slug}-mobile.png'

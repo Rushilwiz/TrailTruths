@@ -46,12 +46,11 @@ body::-webkit-scrollbar {
   cursor: pointer;
   width: 70px;
   margin: 0 auto;
-  margin-top: 70vh;
   height: 100px; }
 
 .arrow:after {
   content: "";
-  margin-top: 70vh;
+  margin-top: 75vh;
   width: 70px;
   height: 100px;
   position: absolute;
