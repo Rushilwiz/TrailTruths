@@ -93,14 +93,14 @@ class Poll (models.Model):
 	ask_lo = models.BooleanField(default=True)
 	lo_text = models.CharField(max_length=100, blank=True, null=True, default='What was the <span class="lo">Lo</span> of this week?')
 	
-	ask_emotion = models.BooleanField(default=True)
+	ask_emotion = models.BooleanField(default=False)
 	emotion_text = models.CharField(max_length=100, blank=True, null=True, default="how are you feeling today?")
 	
-	ask_name = models.BooleanField(default=True)
+	ask_name = models.BooleanField(default=False)
 	name_text = models.CharField(max_length=100, blank=True, null=True, default="what's your name?")
 	
 	ask_place = models.BooleanField(default=True)
-	place_text = models.CharField(max_length=100, blank=True, null=True, default="where are you from?")
+	place_text = models.CharField(max_length=100, blank=True, null=True, default="fill it out by writing #HiLo and finishing it with where you’re from (Ex. #HiLoArlington, #HiLoDC)")
 	
 	ask_question = models.BooleanField(default=False)
 	question_text = models.CharField(max_length=100, blank=True, null=True)
@@ -110,8 +110,25 @@ class Poll (models.Model):
 	def __str__(self):
 		return f"{self.location.name}'s Poll"
 
-	def __save__(self, *args, **kwargs):
+	def save(self, *args, **kwargs):
+		# print("ok....")
 		self.pub_date = timezone.now()
+		# if self.ask_hi != True:
+		# 	self.hi_text = None
+
+		# if self.ask_lo != True:
+		# 	self.lo_text = None
+
+		# print("whatfaskdfjksadkfasd")
+		# if self.ask_name != True:
+		# 	print("bruh thatsakjjktsltjlkslktjlksatlkljkaslk")
+		# 	self.name_text = None
+
+		# if self.ask_place != True:
+		# 	self.place_text = None
+
+		# if self.ask_question != True:
+		# 	self.question_text = None
 		super().save(self, *args, **kwargs)
 
 

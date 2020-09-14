@@ -8,16 +8,18 @@
 	}
 
 	.hero {
+		cursor: pointer;
 		background-image: url("{{ location.results.url }}");
 	}
 
     @media (max-width: 768px) {
       .hero {
-        background-image: url("{{ location.results_mobile.url }}");
+        background-image: url("{% static 'css/res/results-mobile-hero.png' %}");
       }
     }
 </style>
-<section class="jumbotron hero jumbotron-fluid m-0"></section>
+<section id="results-hero" class="jumbotron hero jumbotron-fluid m-0"></section>
+<section id="answers">
 {% for answer in answers %}
 	<div class="card text-white bg-dark mb-3">
 		<div class="row">
@@ -44,5 +46,6 @@
 			</div>
 		</div>
 	</div>
+</section>
 {% endfor %}
 {% endblock %}

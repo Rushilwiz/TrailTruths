@@ -12,7 +12,7 @@
 }
 
 // fonts
-$font-stack: 'Futura-Heavy','Arial',sans-serif;
+$font-stack: 'Hanson-Bold','Arial',sans-serif;
 
 @font-face {
     src: url("./fonts/Hanson-Bold.ttf");
@@ -56,13 +56,13 @@ $mobile-width: 768px;
 
 // colors
 $dark-grey: #333;
-$darker-grey: #222;
-$text: #2b5291;
-$text-light: #42b8c7;
+$darker-grey: #4b4b4b;
+$text: #000000;
+$text-light: #000;
 $header-stroke: #305899;
 
-$green: #48B93E;
-$red: #E34848;
+$green: #80ea7b;
+$red: #f85151;
 
 html {
   background-color: $darker-grey;
@@ -106,7 +106,7 @@ body::-webkit-scrollbar {
 
 .arrow:after {
      content: "";
-     margin-top: 75vh;
+     margin-top: 70vh;
      width: 70px;
      height: 100px;
      position: absolute;
@@ -145,9 +145,9 @@ body::-webkit-scrollbar {
   color: white;
   background-image: url("res/banner.png");
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
+  transform: scale(1.2);
 }
 
 .info-col{
@@ -180,7 +180,7 @@ body::-webkit-scrollbar {
 #insta-section {
   border-bottom: 2px solid white;
   div {
-    background-color: pink;
+    background-color: #ffffff;
   }
 }
 
@@ -221,7 +221,7 @@ body::-webkit-scrollbar {
 
 .title {
   color: $text-light;
-  font-size: 1.20em;
+  font-size: 1.40em;
   text-align: center;
   @include desktop {
     font-size: 1.45em;
@@ -289,4 +289,8 @@ label {
 .results-emote {
   width: 150px;
   height: auto;
+}
+
+.question {
+  font-size: 2em;
 }

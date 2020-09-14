@@ -22,25 +22,28 @@
         </section>
         <section>
             <div id="info-section"class="row">
-                <div class="col-lg info-col p-5">
-                    <h1 class="info-header">WHAT IS THIS?<br/>
-                        AND WHATS YOUR STORY?
-                    </h1>
-                    <p class="info">
-                    we’re “what’s your story” (hence #WYS) and we want to hear yours! what
-                    kinds of things make you special? what are some of your favorite snacks
-                    or movies? what is a special talent you mighthave that you don't tell
-                    people about in person? this is the beginning of us (fellow riders,
-                    walkers, etc.) getting to know one another throughout our communities
-                    across the US while encouraging people to get out on the trails and
-                    exercise. it revolves around the idea that every stranger has a story
-                    to share and we can unify communities using these diverse stories and
-                    connect just like trails and maps do. if you are here right now you
-                    scanned a QR code that was hung up on a nearby trail. we are happy to
-                    have you here! so, go ahead and share your story and enjoy being
-                    outside. YOU ARE AWESOME!
-                  </p>
-                </div>
+              <div class="col-lg info-col p-5">
+                <h1 class="info-header">
+                  <img class="img-fluid" src="{% static 'css/res/info-header.png' %}" alt="WHAT IS THIS? <br /> AND WHAT'S HILO?">
+                  {# WHAT IS THIS?<br/> AND WHATS YOUR STORY? #}
+                </h1>
+                <p class="info">
+                  inspired by a family tradition of “high, low, buffalo”, a fun exercise
+                  in sharing the highs, lows, and funny parts of our day, Hi Lo aims 
+                  to encourage people to share about their days and their feelings 
+                  just like “high, low, buffalo does”. this is the beginning of us 
+                  (fellow riders,walkers, etc.) getting to know one another 
+                  throughout our communities across the US while encouraging
+                  people to get out on the trails and exercise. it revolves around 
+                  the idea that every person has a story to share and we can 
+                  unify communities using these diverse stories and connect just
+                  like trails and maps do. if you are here right now you scanned a 
+                  QR code that was hung up on a nearby trail. we are happy to have
+                  you here! so, go ahead and share your story and enjoy being 
+                  outside. we’re here with you through your highs and lows! 
+                  HAVE A GREAT DAY
+                </p>
+              </div>
             </div>
             <div id="info-section"class="row">
                 <div class="col-lg banner vh-25"></div>
@@ -48,7 +51,7 @@
         </section>
         <div id="insta-section"class="row">
             <div class="col-lg p-5">
-                <p class="text-light insta-info">These responses are not being used in any negative way
+                <p class="insta-info">These responses are not being used in any negative way
                   , just to hear stories and see how cool people are all over! you do not
                   have to share your name or where you live, it just makes your
                   responses more identifiable if you see them on the instagram.
@@ -59,7 +62,7 @@
                   i hope to publish some stories via instagram and share
                   the journeys taking place all over our country!<br/>
 
-                  <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram center pt-3" style="font-size: 48px; color: white; text-align: center; width: 100%;"></i></a>
+                  <a href="https://instagram.com/{{instagram}}" target="_blank"><i class="fa fa-instagram center pt-3" style="font-size: 48px; color: black; text-align: center; width: 100%;"></i></a>
                 </p>
             </div>
         </div>
@@ -83,17 +86,14 @@
                       {{ hidden }}
                     {% endfor %}
 
-
-                    {{ form.errors }}
-                    {{ form.non_field_errors }}
-                    
                     <div class="row title pb-3 ">
-                      <p for="test" class="mx-auto title">NOW IS YOUR TIME TO SHINE</p>
+                      <img class="mx-auto img-fluid" style="max-width: 80%!important;" src="{% static 'css/res/time-to-shine.png' %}">
+                      {# <p class="mx-auto title">NOW IS YOUR TIME TO SHINE</p> #}
                     </div>
                     {% if hi_text %}
                       <div class="row pb-3 short-answer">
                         <label class="mx-auto" for="{{ form.hi.id_for_label }}">{{ hi_text|safe }}</label>
-                        {{ form.hi|add_class:'w-80 mx-auto rounded' }}
+                        {{ form.hi|add_class:'w-80 mx-auto rounded question' }}
                         {% for error in form.hi.errors %}
                           <span class="help-block">{{ error }}</span>
                         {% endfor %}
@@ -104,7 +104,7 @@
                     {% if lo_text %}
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.lo.id_for_label }}">What was the <span class="lo">Lo</span> of this week?</label>
-                      {{ form.lo|add_class:'w-80 mx-auto rounded' }}
+                      {{ form.lo|add_class:'w-80 mx-auto rounded question' }}
                       {% for error in form.lo.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
@@ -112,9 +112,6 @@
                     {% else %}
                       {{ form.lo|add_class:'hidden' }}
                     {% endif %}
-                    <div class="row pb-1 subtitle">
-                      <p class="mx-auto">SOME MORE QUESTIONS FOR THE SOUL</p>
-                    </div>
                     {% if emotion_text %}
                     <div class="row pb-3 short-answer">
                       <label for="test" class="mx-auto">how are you feeling today?</label>
@@ -132,13 +129,13 @@
                     </div>
                     {% else %}
                       {% for radio in form.emotion %}
-                        {{ radio.tag|add_class:'hidden' }}
+                        {{ radio.tag }}
                       {% endfor %}
                     {% endif %}
                     {% if name_text %}
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.name.id_for_label }}">{{ name_text|safe }}</label>
-                      {{ form.name|add_class:'w-80 mx-auto rounded' }}
+                      {{ form.name|add_class:'w-80 mx-auto rounded question' }}
                       {% for error in form.name.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
@@ -146,10 +143,13 @@
                     {% else %}
                       {{ form.name|add_class:'hidden' }}
                     {% endif %}
-                    {% if place_text %}         
+                    {% if place_text %}
+                    <div class="row title">
+                      <img class="mx-auto img-fluid" style="max-width: 80%!important;" src="{% static 'css/res/hilo-hashtag.png' %}">
+                    </div>
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.place.id_for_label }}">{{ place_text|safe }}</label>
-                      {{ form.place|add_class:'w-80 mx-auto rounded' }}
+                      {{ form.place|add_class:'w-80 mx-auto rounded question' }}
                       {% for error in form.place.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
@@ -158,9 +158,14 @@
                       {{ form.place|add_class:'hidden' }}
                     {% endif %}
                     {% if question_text %}         
+                    <div class="row title">
+                      <img class="mx-auto img-fluid" style="max-width: 80%!important;" src="{% static 'css/res/bonus-question.png' %}">
+
+                      {# <p class="mx-auto title">BONUS QUESTION</p> #}
+                    </div>
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.question.id_for_label }}">{{ question_text|safe }}</label>
-                      {{ form.question|add_class:'w-80 mx-auto rounded' }}
+                      {{ form.question|add_class:'w-80 mx-auto rounded question' }}
                       {% for error in form.question.errors %}
                         <span class="help-block">{{ error }}</span>
                       {% endfor %}
@@ -170,7 +175,7 @@
                     {% endif %}
                     <div class="row">
                       <button type="submit" class="mx-auto btn text-uppercase">
-                        <img src="{% static 'css/res/submit.png' %}">
+                        <img src="{% static 'css/res/submit-white.png' %}">
                       </button>
                     </div>
                   </form>

@@ -17,8 +17,8 @@
   src: url("./fonts/FuturaPTHeavy.otf");
   font-family: "Futura-Heavy"; }
 html {
-  background-color: #222;
-  font-family: "Futura-Heavy", "Arial", sans-serif;
+  background-color: #4b4b4b;
+  font-family: "Hanson-Bold", "Arial", sans-serif;
   overflow-x: none !important; }
 
 body {
@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 
 .arrow:after {
   content: "";
-  margin-top: 75vh;
+  margin-top: 70vh;
   width: 70px;
   height: 100px;
   position: absolute;
@@ -76,24 +76,24 @@ body::-webkit-scrollbar {
   color: white;
   background-image: url("res/banner.png");
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; }
+  background-size: contain;
+  background-attachment: fixed;
+  transform: scale(1.2); }
 
 .info-col {
   background-color: #fff; }
 
 .info-header {
-  color: #2b5291;
-  font-family: "Futura-Heavy", "Arial", sans-serif; }
+  color: #000000;
+  font-family: "Hanson-Bold", "Arial", sans-serif; }
   @media (max-width: 768px) {
     .info-header {
       font-size: 1.25em; } }
 
 .info {
   font-size: .8em;
-  color: #2b5291;
-  font-family: "Futura-Heavy", "Arial", sans-serif; }
+  color: #000000;
+  font-family: "Hanson-Bold", "Arial", sans-serif; }
   @media (max-width: 768px) {
     .info {
       font-size: .75em; } }
@@ -101,7 +101,7 @@ body::-webkit-scrollbar {
 #insta-section {
   border-bottom: 2px solid white; }
   #insta-section div {
-    background-color: pink; }
+    background-color: #ffffff; }
 
 .bg-colored:before {
   right: -999em;
@@ -118,12 +118,12 @@ body::-webkit-scrollbar {
 
 .poll {
   color: white;
-  background-color: #222;
+  background-color: #4b4b4b;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: "Futura-Heavy", "Arial", sans-serif;
+  font-family: "Hanson-Bold", "Arial", sans-serif;
   font-weight: lighter;
   font-size: .75em; }
 
@@ -131,15 +131,15 @@ body::-webkit-scrollbar {
   font-size: 1.1em; }
 
 .title {
-  color: #42b8c7;
-  font-size: 1.20em;
+  color: #000;
+  font-size: 1.40em;
   text-align: center; }
   @media (min-width: 768px) {
     .title {
       font-size: 1.45em; } }
 
 .subtitle {
-  color: #42b8c7;
+  color: #000;
   font-size: 1.1em; }
   @media (min-width: 768px) {
     .subtitle {
@@ -149,14 +149,14 @@ label {
   font-size: 1.25em; }
 
 .btn {
-  color: #2b5291;
+  color: #000000;
   border-image-repeat: none; }
 
 .hi {
-  color: #48B93E; }
+  color: #80ea7b; }
 
 .lo {
-  color: #E34848; }
+  color: #f85151; }
 
 [type=radio] {
   position: absolute;
@@ -178,7 +178,7 @@ label {
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
-  outline: 2px solid #2b5291; }
+  outline: 2px solid #000000; }
 
 .hidden {
   display: none; }
@@ -189,5 +189,8 @@ label {
 .results-emote {
   width: 150px;
   height: auto; }
+
+.question {
+  font-size: 2em; }
 
 /*# sourceMappingURL=styles.css.map */

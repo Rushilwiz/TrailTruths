@@ -64,6 +64,7 @@ def homepage (request, slug="arlington"):
 		'form': form,
 		'poll': poll,
 		'location': location,
+		'instagram': location.insta[1:],
 		'hi_text': hi_text,
 		'lo_text': lo_text,
 		'emotion_text': emotion_text,
