@@ -41,7 +41,7 @@ class Location (models.Model):
 		self.slug = slugify(self.name)
 		self.hero = f'heros/hero-{self.slug}.png'
 		self.hero_mobile = f'heros/hero-{self.slug}-mobile.png'
-		if self.insta is not None and self.insta is not '' and self.insta[0] is not '@':
+		if self.insta != None and self.insta != '' and self.insta[0] != '@':
 			self.insta = '@' + self.insta
 
 		self.results = f'results/results-{self.slug}.png'
@@ -73,7 +73,7 @@ class Location (models.Model):
 		mobile_output = f'{settings.PROJECT_PATH}/media/results/results-{self.slug}-mobile.png'
 		font = ImageFont.truetype(settings.PROJECT_PATH + static("css/fonts/FuturaPTMedium.otf"), 60)
 
-		if self.insta is not None and self.insta is not '':
+		if self.insta != None and self.insta != '':
 			drawPic (settings.PROJECT_PATH + static("css/res/results.png"), output, font, 735, 805, self.insta)
 			drawPic (settings.PROJECT_PATH + static("css/res/results-mobile.png"), mobile_output, font, 360, 1380, self.insta)
 		else:
@@ -134,22 +134,22 @@ class Answer (models.Model):
 
 	def save(self, *args, **kwargs):
 		self.time = timezone.now()
-		if self.hi is '':
+		if self.hi == '':
 			self.hi = "Not stated"
 
-		if self.lo is '':
+		if self.lo == '':
 			self.lo = "Not stated"
 
-		if self.name is '':
+		if self.name == '':
 			self.name = "Anonymous"
 
-		if self.place is '':
+		if self.place == '':
 			self.place = "Somewhere"
 
-		if self.question is '':
+		if self.question == '':
 			self.question = "Not stated"
 
-		if self.current_question is '':
+		if self.current_question == '':
 			self.current_question = self.poll.question_text
 
 		super().save(self, *args, **kwargs)
