@@ -25,7 +25,10 @@ SECRET_KEY = secrets.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hilo.link']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['hilo.link', 'hi-loproject.com']
 
 
 # Application definition
@@ -79,18 +82,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': secrets.DB_NAME,
-        'USER': secrets.DB_USER,
-        'PASSWORD': secrets.DB_PASS,
-        'HOST': 'localhost',
-        'PORT': '',
+if not DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': secrets.DB_NAME,
+            'USER': secrets.DB_USER,
+            'PASSWORD': secrets.DB_PASS,
+            'HOST': 'localhost',
+            'PORT': '',
+        }
     }
-}
-
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
