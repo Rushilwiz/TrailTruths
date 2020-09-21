@@ -30,7 +30,6 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = ['hilo.link', 'hi-loproject.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
