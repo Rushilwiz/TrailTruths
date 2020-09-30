@@ -17,7 +17,7 @@
   src: url("./fonts/FuturaPTHeavy.otf");
   font-family: "Futura-Heavy"; }
 html {
-  background-color: #4b4b4b;
+  background-color: black;
   font-family: "Hanson-Bold", "Arial", sans-serif;
   overflow-x: none !important; }
 
@@ -88,7 +88,7 @@ body::-webkit-scrollbar {
   font-family: "Hanson-Bold", "Arial", sans-serif; }
   @media (max-width: 768px) {
     .info-header {
-      font-size: 1.25em; } }
+      font-size: 1.5em; } }
 
 .info {
   font-size: .8em;
@@ -131,7 +131,7 @@ body::-webkit-scrollbar {
   font-size: 1.1em; }
 
 .title {
-  color: #000;
+  color: #fff;
   font-size: 1.40em;
   text-align: center; }
   @media (min-width: 768px) {
@@ -139,7 +139,7 @@ body::-webkit-scrollbar {
       font-size: 1.45em; } }
 
 .subtitle {
-  color: #000;
+  color: #fff;
   font-size: 1.1em; }
   @media (min-width: 768px) {
     .subtitle {

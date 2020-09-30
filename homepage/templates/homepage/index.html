@@ -11,7 +11,14 @@
 
             @media (max-width: 768px) {
               .hero {
-                background-image: url("{{ location.hero_mobile.url }}");
+                background: url("{{ location.hero_mobile.url }}");
+                background-attachment: fixed
+                background-repeat: no-repeat;
+                background-position: center center; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
               }
             }
         </style>
@@ -24,8 +31,7 @@
             <div id="info-section"class="row">
               <div class="col-lg info-col p-5">
                 <h1 class="info-header">
-                  <img class="img-fluid" src="{% static 'css/res/info-header.png' %}" alt="WHAT IS THIS? <br /> AND WHAT'S HILO?">
-                  {# WHAT IS THIS?<br/> AND WHATS YOUR STORY? #}
+                  WHAT IS THIS?<br/> AND WHATS YOUR STORY?
                 </h1>
                 <p class="info">
                   inspired by a family tradition of “high, low, buffalo”, a fun exercise
@@ -87,8 +93,7 @@
                     {% endfor %}
 
                     <div class="row title pb-3 ">
-                      <img class="mx-auto img-fluid" style="max-width: 80%!important;" src="{% static 'css/res/time-to-shine.png' %}">
-                      {# <p class="mx-auto title">NOW IS YOUR TIME TO SHINE</p> #}
+                      <p class="mx-auto title shine">NOW IS YOUR TIME TO SHINE</p>
                     </div>
                     {% if hi_text %}
                       <div class="row pb-3 short-answer">
@@ -145,7 +150,7 @@
                     {% endif %}
                     {% if place_text %}
                     <div class="row title">
-                      <img class="mx-auto img-fluid" style="max-width: 80%!important;" src="{% static 'css/res/hilo-hashtag.png' %}">
+                      <p class="mx-auto title">#HILOW</p>
                     </div>
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.place.id_for_label }}">{{ place_text|safe }}</label>
@@ -159,9 +164,7 @@
                     {% endif %}
                     {% if question_text %}         
                     <div class="row title">
-                      <img class="mx-auto img-fluid" style="max-width: 80%!important;" src="{% static 'css/res/bonus-question.png' %}">
-
-                      {# <p class="mx-auto title">BONUS QUESTION</p> #}
+                      <p class="mx-auto title">BONUS QUESTION</p>
                     </div>
                     <div class="row pb-3 short-answer">
                       <label class="mx-auto" for="{{ form.question.id_for_label }}">{{ question_text|safe }}</label>
@@ -175,7 +178,7 @@
                     {% endif %}
                     <div class="row">
                       <button type="submit" class="mx-auto btn text-uppercase">
-                        <img src="{% static 'css/res/submit-white.png' %}">
+                        <img width=75% src="{% static 'css/res/submit-white.png' %}">
                       </button>
                     </div>
                   </form>

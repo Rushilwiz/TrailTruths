@@ -38,6 +38,14 @@ class Location (models.Model):
 			draw.text((x,y), text, font=font, fill=(255,255,255))
 			img.save(output)
 
+		def add_margin(pil_img, top, right, bottom, left, color):
+		    width, height = pil_img.size
+		    new_width = width + right + left
+		    new_height = height + top + bottom
+		    result = Image.new(pil_img.mode, (new_width, new_height), color)
+		    result.paste(pil_img, (left, top))
+		    return result
+
 		self.slug = slugify(self.name)
 		self.hero = f'heros/hero-{self.slug}.png'
 		self.hero_mobile = f'heros/hero-{self.slug}-mobile.png'
@@ -66,7 +74,7 @@ class Location (models.Model):
 		drawPic(mobile_output, mobile_output, font, 100, 1470, self.slug.upper())
 		drawPic(mobile_output, mobile_output, font, 100, 1570, self.slug.upper())
 		mobile_img = Image.open(mobile_output)
-		mobile_img.resize((1920, 1080))
+		mobile_img = mobile_img.resize((1080, 1920))
 		mobile_img.save(mobile_output)
 
 		output = f'{settings.PROJECT_PATH}/media/results/results-{self.slug}.png'

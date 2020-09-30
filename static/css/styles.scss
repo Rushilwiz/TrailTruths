@@ -58,14 +58,14 @@ $mobile-width: 768px;
 $dark-grey: #333;
 $darker-grey: #4b4b4b;
 $text: #000000;
-$text-light: #000;
+$text-light: #fff;
 $header-stroke: #305899;
 
 $green: #80ea7b;
 $red: #f85151;
 
 html {
-  background-color: $darker-grey;
+  background-color: black;
   font-family: $font-stack;
 
   overflow-x: none!important;
@@ -161,7 +161,7 @@ body::-webkit-scrollbar {
   //-webkit-text-stroke: 3px $header-stroke;
 
   @include mobile {
-    font-size: 1.25em;
+    font-size: 1.5em;
     //text-stroke: 2px $header-stroke;
     //-webkit-text-stroke: 2px $header-stroke;
   }
