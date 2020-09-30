@@ -119,8 +119,8 @@ body::-webkit-scrollbar {
 .poll {
   color: white;
   background: #4b4b4b;
-  background: -webkit-linear-gradient(#464646, #4b4b4b);
-  background: linear-gradient(#464646, #4b4b4b);
+  background: -webkit-linear-gradient(#191919, #4b4b4b);
+  background: linear-gradient(#191919, #4b4b4b);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
