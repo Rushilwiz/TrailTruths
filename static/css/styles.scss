@@ -202,7 +202,9 @@ body::-webkit-scrollbar {
 .poll {
   color: white;
   //background-image: url("res/poll-gradient.png");
-  background-color: $darker-grey;
+  background: $darker-grey;
+  background: -webkit-linear-gradient(#464646, $darker-grey);
+  background: linear-gradient(#464646, $darker-grey);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
