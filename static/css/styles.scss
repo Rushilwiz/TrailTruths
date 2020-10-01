@@ -147,7 +147,7 @@ body::-webkit-scrollbar {
   background-position: center;
   background-size: contain;
   background-attachment: fixed;
-  transform: scale(1.2);
+  width: 100vw;
 }
 
 .info-col{
@@ -179,6 +179,7 @@ body::-webkit-scrollbar {
 
 #insta-section {
   border-bottom: 2px solid white;
+  font-family: $font-stack;
   div {
     background-color: #ffffff;
   }
